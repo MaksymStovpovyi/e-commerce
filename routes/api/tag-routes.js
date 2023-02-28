@@ -41,10 +41,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
+
   Tag.create(req.body)
   .then((tag) => {
     res.status(200).json(tag);
   })
+  
 });
 
 router.put('/:id', async (req, res) => {
@@ -65,7 +67,7 @@ router.put('/:id', async (req, res) => {
   } catch (err) {
     res.status(404).json({ message: 'No tags found with this id!'});
   }
-  
+
 });
 
 router.delete('/:id', async (req, res) => {
